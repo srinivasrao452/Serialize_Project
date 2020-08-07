@@ -4,6 +4,8 @@ from django.db import models
 
 # from server to local
 
+# local to server side
+
 # Create your models here.
 class Employee(models.Model):
     ename = models.CharField(max_length=100)
