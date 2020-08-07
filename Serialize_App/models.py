@@ -2,9 +2,7 @@
 
 from django.db import models
 
-# from server to local
-
-# local to server side
+# from server to local coding
 
 # Create your models here.
 class Employee(models.Model):
