@@ -3,7 +3,7 @@
 from django.db import models
 
 # from server to local coding
-
+#hello
 # Create your models here.
 class Employee(models.Model):
     ename = models.CharField(max_length=100)

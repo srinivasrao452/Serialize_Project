@@ -10,6 +10,7 @@ from Serialize_App.forms import EmployeeForm
 
 from Serialize_App.mixins import SerializeMixin
 
+
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 
@@ -38,7 +39,7 @@ class EmployeeListView(SerializeMixin, View):
 
         if not valid_json:
             json_data = json.dumps({'msg':'Please send valid JSON type data'})
-            return HttpResponse(json_data,content_type='application/json',status=400)
+            return HttpResponse(json_data['msg'],content_type='application/json',status=400)
 
         emp_data = json.loads(data)
         form = EmployeeForm(emp_data)
@@ -112,6 +113,7 @@ class EmployeeDetailView(SerializeMixin,View):
         original_data.update(provided_data)
 
         form = EmployeeForm(original_data, instance=emp)
+
         if form.is_valid():
             form.save(commit=True)
             json_data = json.dumps({'msg': 'Data updated successfully'})

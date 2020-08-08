@@ -1,25 +1,26 @@
 
 import json
 import requests
+
 url = 'http://127.0.0.1:3344/employees/'
 
 emp={
-    "ename":"Reshab",
-    "esal" : 85000,
-    "eaddr" : "Koti"
+    "ename":"Dravid",
+    "esal" : 95000,
+    "eaddr" : "Bangaloore"
 }
 
 # response = requests.get(url)
 
-# response = requests.post(url, data=json.dumps(emp))
+response = requests.post(url, data=json.dumps(emp))
 
 
-id = input('Enter any id :')
+# id = input('Enter any id :')
 # response = requests.get(url+id+'/')
 
 # response = requests.delete(url+id)
 
-response = requests.put(url+id+'/',data=json.dumps(emp))
+# response = requests.put(url+id+'/',data=json.dumps(emp))
 
 if response.status_code==200:
     print('Status code is :', response.status_code)
@@ -35,7 +36,7 @@ elif response.status_code==204:
 
 elif response.status_code==400:
     print('Status code is :', response.status_code)
-    print('Record not created.')
+    print('Record not created or updated.')
 
 elif response.status_code==404:
     print('Status code is :', response.status_code)
